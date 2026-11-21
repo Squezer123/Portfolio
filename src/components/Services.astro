@@ -1,0 +1,79 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { services } from '../data/services';
+import { getLang, useTranslations } from '../i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+---
+
+<section class="services" id="services">
+  <SectionHeading
+    label={t('services.label')}
+    title={t('services.title')}
+    lead={t('services.lead')}
+  />
+
+  <ol class="list indent">
+    {
+      services.map((service, i) => (
+        <li class="row">
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{service.title[lang]}</h3>
+          <p>{service.text[lang]}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .services {
+    padding: 0 var(--gutter) 160px;
+  }
+
+  .list {
+    margin-top: 80px;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(244, 242, 237, 0.12);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 24px;
+    align-items: baseline;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(244, 242, 237, 0.12);
+  }
+
+  .num {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .row p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  @media (max-width: 700px) {
+    .row {
+      grid-template-columns: 40px 1fr;
+      row-gap: 8px;
+    }
+
+    .row p {
+      grid-column: 2;
+    }
+  }
+</style>

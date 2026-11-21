@@ -1,0 +1,35 @@
+---
+import { getLang, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLang(Astro.currentLocale));
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p>© {year} KK Projects. {t('footer.rights')}</p>
+  <a href="#home">{t('footer.top')}</a>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 var(--gutter);
+    padding: 28px 0 36px;
+    border-top: 1px solid rgba(244, 242, 237, 0.12);
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .footer a {
+    color: var(--text);
+    transition: color 0.2s ease;
+  }
+
+  .footer a:hover {
+    color: var(--accent);
+  }
+</style>

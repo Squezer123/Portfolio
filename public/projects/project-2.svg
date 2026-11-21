@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Project preview placeholder">
+  <defs>
+    <linearGradient id="project-2-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a443c"/>
+      <stop offset="1" stop-color="#201d19"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#project-2-bg)"/>
+  <rect x="170" y="130" width="460" height="285" rx="14" fill="#0c0c0c" stroke="#2c2c2c" stroke-width="2"/>
+  <rect x="186" y="146" width="428" height="253" rx="4" fill="#6b6154"/>
+  <rect x="208" y="176" width="130" height="10" rx="2" fill="#f4f2ed" opacity=".6"/>
+  <rect x="208" y="198" width="100" height="10" rx="2" fill="#f4f2ed" opacity=".4"/>
+  <rect x="208" y="236" width="140" height="4" rx="2" fill="#f4f2ed" opacity=".25"/>
+  <rect x="208" y="248" width="120" height="4" rx="2" fill="#f4f2ed" opacity=".25"/>
+  <rect x="404" y="190" width="30" height="170" rx="6" fill="#f4f2ed" opacity=".18"/>
+  <rect x="446" y="214" width="26" height="146" rx="6" fill="#f4f2ed" opacity=".14"/>
+  <rect x="484" y="250" width="70" height="110" rx="8" fill="#f4f2ed" opacity=".1"/>
+  <path d="M360 415 H440 L452 462 H348 Z" fill="#1c1c1c" stroke="#2c2c2c" stroke-width="2"/>
+  <rect x="320" y="462" width="160" height="10" rx="5" fill="#1c1c1c" stroke="#2c2c2c" stroke-width="2"/>
+</svg>

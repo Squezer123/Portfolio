@@ -1,0 +1,125 @@
+---
+import { getLang, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLang(Astro.currentLocale));
+---
+
+<section class="hero" id="home">
+  <aside class="meta">
+    <span class="line" aria-hidden="true"></span>
+    <p class="role">{t('hero.role')}</p>
+    <p class="status"><span class="pulse" aria-hidden="true"></span>{t('hero.status')}</p>
+  </aside>
+
+  <div class="content">
+    <h1>{t('hero.title')}</h1>
+    <p class="lead">{t('hero.lead')}</p>
+    <div class="actions">
+      <a href="#projects" class="btn">{t('hero.work')}</a>
+      <a href="#contact" class="link">{t('hero.contact')}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: var(--content-offset) 1fr;
+    align-items: start;
+    padding: 215px var(--gutter) 80px 0;
+  }
+
+  .meta {
+    padding-left: var(--gutter);
+    padding-top: 2px;
+  }
+
+  .line {
+    display: block;
+    width: 14px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .role {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .content {
+    max-width: 680px;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 6.2vw, 5.1rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .lead {
+    margin-top: 40px;
+    max-width: 490px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 24px;
+    background: var(--text);
+    color: var(--bg);
+    font-size: 15px;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  .link {
+    font-size: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 1px;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 140px var(--gutter) 60px;
+      gap: 40px;
+    }
+
+    .meta {
+      padding-left: 0;
+    }
+  }
+</style>

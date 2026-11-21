@@ -1,0 +1,67 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { getLang, localizePath, useTranslations } from '../i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+const pathname = Astro.url.pathname;
+
+const items = (Object.keys(languages) as Lang[]).map((code) => ({
+  code,
+  label: code.toUpperCase(),
+  name: languages[code],
+  href: localizePath(pathname, code),
+  active: code === lang,
+}));
+---
+
+<div class="switcher" role="group" aria-label={t('lang.aria')}>
+  {
+    items.map((item, i) => (
+      <>
+        {i > 0 && <span class="sep" aria-hidden="true">/</span>}
+        <a
+          href={item.href}
+          hreflang={item.code}
+          lang={item.code}
+          title={item.name}
+          class:list={['option', { active: item.active }]}
+          aria-current={item.active ? 'true' : undefined}
+        >
+          {item.label}
+        </a>
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .sep {
+    color: var(--muted);
+    opacity: 0.5;
+  }
+
+  .option {
+    color: var(--muted);
+    padding: 2px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease;
+  }
+
+  .option:hover {
+    color: var(--text);
+  }
+
+  .option.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+</style>
