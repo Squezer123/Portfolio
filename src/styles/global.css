@@ -23,6 +23,8 @@ html {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  /* kotwice (#about itd.) nie chowają się pod przyklejonym navbarem */
+  scroll-padding-top: 80px;
 }
 
 body {
